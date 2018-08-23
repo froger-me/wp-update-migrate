@@ -3,7 +3,7 @@
 
 ### Description
 
-**Important**: currently only supports plugin update path.
+**Important**: currently, only plugin update paths are supported.
 
 ### Requirements
 
@@ -17,7 +17,7 @@ Before enabling migrations with the code below, setup your plugin properly by ma
 - to name each file in the `updates` folder with a version number as file name (example: `1.5.3.php`)
 - each update file in the `updates` directory have a single update function, and do not include any logic outside of that function
 - the update function name in each update file follows the pattern: `[example_prefix]_update_to_[version]`
-	- example: in `1.5.3.php`, the function is `my_plugin_update_to_1_5_3` with `[example_prefix]` = `my_plugin`
+  - example: in `1.5.3.php`, the function is `my_plugin_update_to_1_5_3` with `[example_prefix]` = `my_plugin`
 - each update function returns `(bool) true` in case of success, a `WP_Error` object otherwise
 
 ### Code to include in the main plugin file
@@ -29,24 +29,24 @@ require_once plugin_dir_path( __FILE__ ) . 'lib/wp-update-migrate/class-wp-updat
 $example_update_migrate = WP_Update_Migrate::get_instance( __FILE__, 'example_prefix' );
 
 if ( false === $example_update_migrate->get_result() ) {
-	/**
-	* @todo
-	* Execute your own logic here in case the update failed.
-	*
-	* if ( false !== has_action( 'example_action', 'example_function' ) ) {
-	*     remove_action( 'example_action', 'example_function', 10 );
-	* }
-	**/
+  /**
+  * @todo
+  * Execute your own logic here in case the update failed.
+  *
+  * if ( false !== has_action( 'example_action', 'example_function' ) ) {
+  *     remove_action( 'example_action', 'example_function', 10 );
+  * }
+  **/
 }
 
 if ( true === $example_update_migrate->get_result() ) {
-	/**
-	* @todo
-	* Execute your own logic here in case an update was applied succeessfully.
-	*
-	* if ( false === has_action( 'example_action', 'example_function' ) ) {
-	*     add_action( 'example_action', 'example_function', 10 );
-	* }
-	**/
+  /**
+  * @todo
+  * Execute your own logic here in case an update was applied succeessfully.
+  *
+  * if ( false === has_action( 'example_action', 'example_function' ) ) {
+  *     add_action( 'example_action', 'example_function', 10 );
+  * }
+  **/
 }
 ```
