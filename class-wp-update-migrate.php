@@ -33,7 +33,7 @@
  **/
 
 /** For plugins **/
-// 	require_once plugin_dir_path( __FILE__ ) . 'lib/wp-update-migrate/class-wp-update-migrate.php';
+// require_once plugin_dir_path( __FILE__ ) . 'lib/wp-update-migrate/class-wp-update-migrate.php';
 // $example_update_migrate = WP_Update_Migrate::get_instance( __FILE__, 'example_prefix' );
 
 /** For themes **/
