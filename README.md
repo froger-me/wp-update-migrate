@@ -44,7 +44,7 @@ add_action( $hook, function() {
   if ( true === $update_migrate->get_result() ) {
     /**
     * @todo
-    * Execute your own logic here in case an update was applied succeessfully.
+    * Execute your own logic here in case an update was applied successfully.
     *
     * if ( false === has_action( 'example_action', 'example_function' ) ) {
     *     add_action( 'example_action', 'example_function', 10 );
@@ -53,7 +53,7 @@ add_action( $hook, function() {
   }
 ```
 
-### Code to include in functions.php
+### Code to include in theme's functions.php
 
 ```php
 require_once plugin_dir_path( __FILE__ ) . 'lib/wp-update-migrate/class-wp-update-migrate.php';
@@ -77,7 +77,7 @@ add_action( $hook, function() {
   if ( true === $update_migrate->get_result() ) {
     /**
     * @todo
-    * Execute your own logic here in case an update was applied succeessfully.
+    * Execute your own logic here in case an update was applied successfully.
     *
     * if ( false === has_action( 'example_action', 'example_function' ) ) {
     *     add_action( 'example_action', 'example_function', 10 );
