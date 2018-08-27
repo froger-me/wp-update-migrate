@@ -51,6 +51,7 @@ add_action( $hook, function() {
     * }
     **/
   }
+}, PHP_INT_MIN );
 ```
 
 ### Code to include in theme's functions.php
@@ -84,4 +85,5 @@ add_action( $hook, function() {
     * }
     **/
   }
+}, PHP_INT_MIN );
 ```
