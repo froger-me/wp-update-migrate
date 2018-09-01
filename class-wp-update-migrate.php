@@ -4,7 +4,7 @@
  * WordPress plugins and themes update path library.
  *
  * @author Alexandre Froger
- * @version 1.2.0
+ * @version 1.2.1
  * @see https://github.com/froger-me/wp-update-migrate
  * @copyright Alexandre Froger - https://www.froger.me
  */
@@ -66,7 +66,7 @@
 		// **/
 	// }
 
-// }, -999 );
+// }, PHP_INT_MIN );
 
 /*================================================================================================ */
 
@@ -235,7 +235,7 @@ if ( ! class_exists( 'WP_Update_Migrate' ) ) {
 				$this->update_result = false;
 				$result              = $this->handle_error( $result );
 
-				add_action( 'admin_notices', array( $this, 'update_failed_notice' ), 10, 0 );
+				$notice_hooks = apply_filters( 'wpum_update_failure_extra_notice_hooks', array( array( $this, 'update_failed_notice' ) ) );
 			} else {
 				$this->update_result = true;
 
@@ -243,7 +243,11 @@ if ( ! class_exists( 'WP_Update_Migrate' ) ) {
 					$this->handle_success( sprintf( __( '<br/>All updates have been applied successfully.', 'wp-update-migrate' ), $this->to_version ) );
 				}
 
-				add_action( 'admin_notices', array( $this, 'update_success_notice' ), 10, 0 );
+				$notice_hooks = apply_filters( 'wpum_update_success_extra_notice_hooks', array( array( $this, 'update_success_notice' ) ) );
+			}
+
+			foreach ( $notice_hooks as $hook ) {
+				add_action( 'admin_notices', $hook, 10, 0 );
 			}
 
 			return $result;
