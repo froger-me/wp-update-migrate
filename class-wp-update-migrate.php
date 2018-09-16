@@ -4,7 +4,7 @@
  * WordPress plugins and themes update path library.
  *
  * @author Alexandre Froger
- * @version 1.2.1
+ * @version 1.2.2
  * @see https://github.com/froger-me/wp-update-migrate
  * @copyright Alexandre Froger - https://www.froger.me
  */
@@ -323,7 +323,7 @@ if ( ! class_exists( 'WP_Update_Migrate' ) ) {
 		protected function update_package_version( $version ) {
 
 			if ( ! version_compare( $this->from_version, $version, '=' ) ) {
-				$result = update_option( $this->package_prefix . '_' . $this->package_type . '_version', $version, false );
+				$result = update_option( $this->package_prefix . '_' . $this->package_type . '_version', $version );
 			} else {
 				$result = true;
 			}
